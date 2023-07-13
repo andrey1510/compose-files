@@ -13,7 +13,7 @@ services:
       POSTGRES_PASSWORD: password
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
-      - /init-database:/docker-entrypoint-initdb.d
+      - ./init-database:/docker-entrypoint-initdb.d
       - sandbox-data:/var/lib/postgresql/data
     ports:
       - 5444:5432
@@ -24,6 +24,7 @@ services:
     container_name: pgadmin4
     image: dpage/pgadmin4:latest
     environment:
+      PGADMIN_DEFAULT_EMAIL: andrey.ivn15@gmail.com 
       PGADMIN_DEFAULT_PASSWORD: password
     volumes:
       - pgadmin-data:/var/lib/pgadmin
